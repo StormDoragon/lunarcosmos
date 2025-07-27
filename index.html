@@ -4,16 +4,25 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>LunarCosmos | Science Articles & Cosmic Discoveries</title>
-  <meta name="description" content="Explore science with LunarCosmos: deep dives into exoplanets, quantum physics, biotech, and more.">
+  <meta name="description" content="Explore science with LunarCosmos: deep dives into exoplanets, quantum physics, biotech, and more. Join our community of curious minds.">
+  <meta name="keywords" content="science, astronomy, biotech, quantum physics, exoplanets, LunarCosmos">
   <meta property="og:title" content="LunarCosmos | Exploring the Universe Within & Beyond">
+  <meta property="og:description" content="Discover science through articles, tools, and community at LunarCosmos.">
+  <meta property="og:image" content="/og-image.jpg">
+  <meta property="og:url" content="https://lunarcosmos.com">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="LunarCosmos | Science & Cosmic Discoveries">
+  <meta name="twitter:description" content="Discover the universe with LunarCosmos articles, tools, and community insights.">
+  <meta name="twitter:image" content="/og-image.jpg">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
   <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebSite",
-      "name": "LunarCosmos",
-      "url": "https://lunarcosmos.com"
-    }
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "LunarCosmos",
+    "url": "https://lunarcosmos.com",
+    "description": "A multidimensional science experience where discovery meets design."
+  }
   </script>
 </head>
 <body class="bg-gray-900 text-white font-sans">
@@ -23,67 +32,65 @@
       <nav aria-label="Main navigation">
         <ul class="flex space-x-6">
           <li class="group relative" aria-haspopup="true">
-            <span class="cursor-pointer" aria-expanded="false">Cosmic Frontiers</span>
-            <ul class="absolute bg-black text-sm space-y-1 mt-2 hidden group-hover:block p-2 rounded shadow-xl" role="menu">
-              <li role="menuitem"><a href="#">Exoplanets</a></li>
-              <li role="menuitem"><a href="#">Black Holes</a></li>
-              <li role="menuitem"><a href="#">Dark Matter</a></li>
-              <li role="menuitem"><a href="#">Time Travel</a></li>
-              <li role="menuitem"><a href="#">Multiverse</a></li>
+            <span class="cursor-pointer" id="cosmic-toggle" aria-expanded="false">Cosmic Frontiers</span>
+            <ul class="absolute bg-black text-sm space-y-1 mt-2 hidden p-2 rounded shadow-xl" id="cosmic-menu" role="menu">
+              <li role="menuitem"><a href="/cosmos/exoplanets">Exoplanets</a></li>
+              <li role="menuitem"><a href="/cosmos/black-holes">Black Holes</a></li>
+              <li role="menuitem"><a href="/cosmos/dark-matter">Dark Matter</a></li>
+              <li role="menuitem"><a href="/cosmos/quantum-space">Quantum Space</a></li>
+              <li role="menuitem"><a href="/cosmos/multiverse-theories">Multiverse Theories</a></li>
             </ul>
           </li>
           <li class="group relative" aria-haspopup="true">
-            <span class="cursor-pointer">Quantum Realms</span>
-            <ul class="absolute bg-black text-sm space-y-1 mt-2 hidden group-hover:block p-2 rounded shadow-xl">
-              <li><a href="#">Quantum Mechanics</a></li>
-              <li><a href="#">Entanglement</a></li>
-              <li><a href="#">Qubits</a></li>
-              <li><a href="#">String Theory</a></li>
-              <li><a href="#">Dimensional Fields</a></li>
+            <span class="cursor-pointer" id="earth-toggle" aria-expanded="false">Earth & Life</span>
+            <ul class="absolute bg-black text-sm space-y-1 mt-2 hidden p-2 rounded shadow-xl" id="earth-menu" role="menu">
+              <li role="menuitem"><a href="/earth/evolution-genomics">Evolution & Genomics</a></li>
+              <li role="menuitem"><a href="/earth/climate-atmosphere">Climate & Atmosphere</a></li>
+              <li role="menuitem"><a href="/earth/microbiology">Microbiology</a></li>
+              <li role="menuitem"><a href="/earth/marine-mysteries">Marine Mysteries</a></li>
+              <li role="menuitem"><a href="/earth/biotech-trends">BioTech Trends</a></li>
             </ul>
           </li>
           <li class="group relative" aria-haspopup="true">
-            <span class="cursor-pointer">Biotech & Evolution</span>
-            <ul class="absolute bg-black text-sm space-y-1 mt-2 hidden group-hover:block p-2 rounded shadow-xl">
-              <li><a href="#">CRISPR</a></li>
-              <li><a href="#">Neuroscience</a></li>
-              <li><a href="#">Synthetic Biology</a></li>
-              <li><a href="#">Evolutionary Design</a></li>
-              <li><a href="#">Bioethics</a></li>
+            <span class="cursor-pointer" id="tech-toggle" aria-expanded="false">Tech & Innovation</span>
+            <ul class="absolute bg-black text-sm space-y-1 mt-2 hidden p-2 rounded shadow-xl" id="tech-menu" role="menu">
+              <li role="menuitem"><a href="/tech/ai-robotics">AI & Robotics</a></li>
+              <li role="menuitem"><a href="/tech/energy-environment">Energy & Environment</a></li>
+              <li role="menuitem"><a href="/tech/space-travel-tech">Space Travel Tech</a></li>
+              <li role="menuitem"><a href="/tech/nanoscience">Nanoscience</a></li>
+              <li role="menuitem"><a href="/tech/future-cities">Future Cities</a></li>
             </ul>
           </li>
           <li class="group relative" aria-haspopup="true">
-            <span class="cursor-pointer">Future Earth</span>
-            <ul class="absolute bg-black text-sm space-y-1 mt-2 hidden group-hover:block p-2 rounded shadow-xl">
-              <li><a href="#">Climate Tech</a></li>
-              <li><a href="#">Space Farming</a></li>
-              <li><a href="#">Terraforming</a></li>
-              <li><a href="#">Geoengineering</a></li>
-              <li><a href="#">Ocean Exploration</a></li>
+            <span class="cursor-pointer" id="math-toggle" aria-expanded="false">Math & Theories</span>
+            <ul class="absolute bg-black text-sm space-y-1 mt-2 hidden p-2 rounded shadow-xl" id="math-menu" role="menu">
+              <li role="menuitem"><a href="/math/pure-math">Pure Math</a></li>
+              <li role="menuitem"><a href="/math/theoretical-physics">Theoretical Physics</a></li>
+              <li role="menuitem"><a href="/math/chaos-complexity">Chaos & Complexity</a></li>
+              <li role="menuitem"><a href="/math/sacred-geometry">Sacred Geometry</a></li>
+              <li role="menuitem"><a href="/math/algorithmic-life">Algorithmic Life</a></li>
             </ul>
           </li>
           <li class="group relative" aria-haspopup="true">
-            <span class="cursor-pointer">AI & Consciousness</span>
-            <ul class="absolute bg-black text-sm space-y-1 mt-2 hidden group-hover:block p-2 rounded shadow-xl">
-              <li><a href="#">Neural Networks</a></li>
-              <li><a href="#">AGI</a></li>
-              <li><a href="#">Mind Uploading</a></li>
-              <li><a href="#">Philosophy of AI</a></li>
-              <li><a href="#">AI Ethics</a></li>
+            <span class="cursor-pointer" id="philosophy-toggle" aria-expanded="false">Philosophy</span>
+            <ul class="absolute bg-black text-sm space-y-1 mt-2 hidden p-2 rounded shadow-xl" id="philosophy-menu" role="menu">
+              <li role="menuitem"><a href="/philosophy/science-spirituality">Science & Spirituality</a></li>
+              <li role="menuitem"><a href="/philosophy/time-consciousness">Time & Consciousness</a></li>
+              <li role="menuitem"><a href="/philosophy/ethics-tech">Ethics in Tech</a></li>
+              <li role="menuitem"><a href="/philosophy/simulation-theory">Simulation Theory</a></li>
+              <li role="menuitem"><a href="/philosophy/epistemology">Epistemology</a></li>
             </ul>
           </li>
         </ul>
       </nav>
     </div>
   </header>
-
   <main class="max-w-7xl mx-auto px-4 py-10">
     <section class="text-center">
       <h2 class="text-4xl font-bold mb-4">Welcome to LunarCosmos</h2>
-      <p class="text-lg text-gray-200 mb-6">A multidimensional science experience where discovery meets design.</p>
+      <p class="text-lg text-gray-200 mb-6">A multidimensional science experience where discovery meets design. From quantum truths to cosmic wonders—explore it all.</p>
       <a href="/articles" class="bg-indigo-500 hover:bg-indigo-600 text-white px-6 py-2 rounded-full text-lg">Explore Articles</a>
     </section>
-
     <section class="py-10">
       <h3 class="text-2xl font-bold mb-4">Featured Articles</h3>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -92,19 +99,43 @@
           <p class="text-gray-200">Dive into the mysteries of black holes and quantum horizons.</p>
         </article>
         <article class="bg-gray-800 p-4 rounded">
-          <h4 class="text-xl font-semibold"><a href="#">The Multiverse Debate</a></h4>
-          <p class="text-gray-200">Is our universe just one of many? Let’s explore.</p>
+          <h4 class="text-xl font-semibold"><a href="/cosmos/multiverse-debate">The Multiverse Debate</a></h4>
+          <p class="text-gray-200">Is our universe just one of many? Let's explore.</p>
         </article>
         <article class="bg-gray-800 p-4 rounded">
-          <h4 class="text-xl font-semibold"><a href="#">AI & Consciousness</a></h4>
+          <h4 class="text-xl font-semibold"><a href="/tech/ai-consciousness">AI & Consciousness</a></h4>
           <p class="text-gray-200">What happens when machines start dreaming?</p>
         </article>
       </div>
     </section>
+    <section class="py-10 text-center">
+      <h3 class="text-2xl font-bold mb-4">Join the LunarCosmos Community</h3>
+      <p class="text-gray-200 mb-6">Discuss discoveries, join AMAs, or submit your own articles!</p>
+      <a href="/community/forums" class="bg-indigo-500 hover:bg-indigo-600 text-white px-6 py-2 rounded-full">Get Involved</a>
+    </section>
   </main>
-
   <footer class="bg-black py-6 mt-10 text-center text-gray-500">
-    © 2025 LunarCosmos. All rights reserved.
+    &copy; 2025 LunarCosmos. All rights reserved.
   </footer>
+  <script>
+    // Toggle script for all menus
+    const toggles = [
+      { toggleId: 'cosmic-toggle', menuId: 'cosmic-menu' },
+      { toggleId: 'earth-toggle', menuId: 'earth-menu' },
+      { toggleId: 'tech-toggle', menuId: 'tech-menu' },
+      { toggleId: 'math-toggle', menuId: 'math-menu' },
+      { toggleId: 'philosophy-toggle', menuId: 'philosophy-menu' }
+    ];
+    toggles.forEach(({ toggleId, menuId }) => {
+      const toggle = document.getElementById(toggleId);
+      const menu = document.getElementById(menuId);
+      if (toggle && menu) {
+        toggle.addEventListener('click', () => {
+          const isHidden = menu.classList.toggle('hidden');
+          toggle.setAttribute('aria-expanded', !isHidden);
+        });
+      }
+    });
+  </script>
 </body>
 </html>
