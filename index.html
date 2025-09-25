@@ -1,141 +1,36 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>LunarCosmos | Science Articles & Cosmic Discoveries</title>
-  <meta name="description" content="Explore science with LunarCosmos: deep dives into exoplanets, quantum physics, biotech, and more. Join our community of curious minds.">
-  <meta name="keywords" content="science, astronomy, biotech, quantum physics, exoplanets, LunarCosmos">
-  <meta property="og:title" content="LunarCosmos | Exploring the Universe Within & Beyond">
-  <meta property="og:description" content="Discover science through articles, tools, and community at LunarCosmos.">
-  <meta property="og:image" content="/og-image.jpg">
-  <meta property="og:url" content="https://lunarcosmos.com">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="LunarCosmos | Science & Cosmic Discoveries">
-  <meta name="twitter:description" content="Discover the universe with LunarCosmos articles, tools, and community insights.">
-  <meta name="twitter:image" content="/og-image.jpg">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "LunarCosmos",
-    "url": "https://lunarcosmos.com",
-    "description": "A multidimensional science experience where discovery meets design."
-  }
-  </script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Cosmic Frontiers · LunarCosmos</title>
+  <meta name="description" content="Explore exoplanets, black holes, dark matter, and more." />
+  <link rel="stylesheet" href="/assets/styles.css" />
 </head>
-<body class="bg-gray-900 text-white font-sans">
-  <header class="bg-black shadow-lg">
-    <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
-      <h1 class="text-3xl font-bold text-indigo-400">LunarCosmos</h1>
-      <nav aria-label="Main navigation">
-        <ul class="flex space-x-6">
-          <li class="group relative" aria-haspopup="true">
-            <span class="cursor-pointer" id="cosmic-toggle" aria-expanded="false">Cosmic Frontiers</span>
-            <ul class="absolute bg-black text-sm space-y-1 mt-2 hidden p-2 rounded shadow-xl" id="cosmic-menu" role="menu">
-              <li role="menuitem"><a href="/cosmos/exoplanets">Exoplanets</a></li>
-              <li role="menuitem"><a href="/cosmos/black-holes">Black Holes</a></li>
-              <li role="menuitem"><a href="/cosmos/dark-matter">Dark Matter</a></li>
-              <li role="menuitem"><a href="/cosmos/quantum-space">Quantum Space</a></li>
-              <li role="menuitem"><a href="/cosmos/multiverse-theories">Multiverse Theories</a></li>
-            </ul>
-          </li>
-          <li class="group relative" aria-haspopup="true">
-            <span class="cursor-pointer" id="earth-toggle" aria-expanded="false">Earth & Life</span>
-            <ul class="absolute bg-black text-sm space-y-1 mt-2 hidden p-2 rounded shadow-xl" id="earth-menu" role="menu">
-              <li role="menuitem"><a href="/earth/evolution-genomics">Evolution & Genomics</a></li>
-              <li role="menuitem"><a href="/earth/climate-atmosphere">Climate & Atmosphere</a></li>
-              <li role="menuitem"><a href="/earth/microbiology">Microbiology</a></li>
-              <li role="menuitem"><a href="/earth/marine-mysteries">Marine Mysteries</a></li>
-              <li role="menuitem"><a href="/earth/biotech-trends">BioTech Trends</a></li>
-            </ul>
-          </li>
-          <li class="group relative" aria-haspopup="true">
-            <span class="cursor-pointer" id="tech-toggle" aria-expanded="false">Tech & Innovation</span>
-            <ul class="absolute bg-black text-sm space-y-1 mt-2 hidden p-2 rounded shadow-xl" id="tech-menu" role="menu">
-              <li role="menuitem"><a href="/tech/ai-robotics">AI & Robotics</a></li>
-              <li role="menuitem"><a href="/tech/energy-environment">Energy & Environment</a></li>
-              <li role="menuitem"><a href="/tech/space-travel-tech">Space Travel Tech</a></li>
-              <li role="menuitem"><a href="/tech/nanoscience">Nanoscience</a></li>
-              <li role="menuitem"><a href="/tech/future-cities">Future Cities</a></li>
-            </ul>
-          </li>
-          <li class="group relative" aria-haspopup="true">
-            <span class="cursor-pointer" id="math-toggle" aria-expanded="false">Math & Theories</span>
-            <ul class="absolute bg-black text-sm space-y-1 mt-2 hidden p-2 rounded shadow-xl" id="math-menu" role="menu">
-              <li role="menuitem"><a href="/math/pure-math">Pure Math</a></li>
-              <li role="menuitem"><a href="/math/theoretical-physics">Theoretical Physics</a></li>
-              <li role="menuitem"><a href="/math/chaos-complexity">Chaos & Complexity</a></li>
-              <li role="menuitem"><a href="/math/sacred-geometry">Sacred Geometry</a></li>
-              <li role="menuitem"><a href="/math/algorithmic-life">Algorithmic Life</a></li>
-            </ul>
-          </li>
-          <li class="group relative" aria-haspopup="true">
-            <span class="cursor-pointer" id="philosophy-toggle" aria-expanded="false">Philosophy</span>
-            <ul class="absolute bg-black text-sm space-y-1 mt-2 hidden p-2 rounded shadow-xl" id="philosophy-menu" role="menu">
-              <li role="menuitem"><a href="/philosophy/science-spirituality">Science & Spirituality</a></li>
-              <li role="menuitem"><a href="/philosophy/time-consciousness">Time & Consciousness</a></li>
-              <li role="menuitem"><a href="/philosophy/ethics-tech">Ethics in Tech</a></li>
-              <li role="menuitem"><a href="/philosophy/simulation-theory">Simulation Theory</a></li>
-              <li role="menuitem"><a href="/philosophy/epistemology">Epistemology</a></li>
-            </ul>
-          </li>
-        </ul>
-      </nav>
-    </div>
+<body>
+  <header class="site-header">
+    <a class="logo" href="/">LunarCosmos</a>
+    <nav>
+      <a href="/cosmos/">Cosmic Frontiers</a>
+      <a href="/earth-life/">Earth & Life</a>
+      <a href="/tech/">Tech & Innovation</a>
+      <a href="/math/">Math & Theories</a>
+      <a href="/philosophy/">Philosophy</a>
+    </nav>
   </header>
-  <main class="max-w-7xl mx-auto px-4 py-10">
-    <section class="text-center">
-      <h2 class="text-4xl font-bold mb-4">Welcome to LunarCosmos</h2>
-      <p class="text-lg text-gray-200 mb-6">A multidimensional science experience where discovery meets design. From quantum truths to cosmic wonders—explore it all.</p>
-      <a href="/articles" class="bg-indigo-500 hover:bg-indigo-600 text-white px-6 py-2 rounded-full text-lg">Explore Articles</a>
-    </section>
-    <section class="py-10">
-      <h3 class="text-2xl font-bold mb-4">Featured Articles</h3>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <article class="bg-gray-800 p-4 rounded">
-          <h4 class="text-xl font-semibold"><a href="/cosmos/black-holes/theory-of-everything">Black Holes: Theory of Everything</a></h4>
-          <p class="text-gray-200">Dive into the mysteries of black holes and quantum horizons.</p>
-        </article>
-        <article class="bg-gray-800 p-4 rounded">
-          <h4 class="text-xl font-semibold"><a href="/cosmos/multiverse-debate">The Multiverse Debate</a></h4>
-          <p class="text-gray-200">Is our universe just one of many? Let's explore.</p>
-        </article>
-        <article class="bg-gray-800 p-4 rounded">
-          <h4 class="text-xl font-semibold"><a href="/tech/ai-consciousness">AI & Consciousness</a></h4>
-          <p class="text-gray-200">What happens when machines start dreaming?</p>
-        </article>
-      </div>
-    </section>
-    <section class="py-10 text-center">
-      <h3 class="text-2xl font-bold mb-4">Join the LunarCosmos Community</h3>
-      <p class="text-gray-200 mb-6">Discuss discoveries, join AMAs, or submit your own articles!</p>
-      <a href="/community/forums" class="bg-indigo-500 hover:bg-indigo-600 text-white px-6 py-2 rounded-full">Get Involved</a>
-    </section>
+
+  <main class="container">
+    <h1>Cosmic Frontiers</h1>
+    <p class="dek">Explore exoplanets, black holes, dark matter, and more.</p>
+    <section class="card-grid">
+  <a class="card" href="/cosmos/black-holes/"><h2>Black Holes</h2><p>Gravity’s most extreme objects.</p></a>
+  <a class="card" href="/cosmos/dark-matter/"><h2>Dark Matter</h2><p>Clues to the universe’s missing mass.</p></a>
+  <a class="card" href="/cosmos/quantum-space/"><h2>Quantum Space</h2><p>Reality at the smallest scales.</p></a>
+  <a class="card" href="/cosmos/multiverse-theories/"><h2>Multiverse Theories</h2><p>One universe or many?</p></a>
+</section>
   </main>
-  <footer class="bg-black py-6 mt-10 text-center text-gray-500">
-    &copy; 2025 LunarCosmos. All rights reserved.
-  </footer>
-  <script>
-    // Toggle script for all menus
-    const toggles = [
-      { toggleId: 'cosmic-toggle', menuId: 'cosmic-menu' },
-      { toggleId: 'earth-toggle', menuId: 'earth-menu' },
-      { toggleId: 'tech-toggle', menuId: 'tech-menu' },
-      { toggleId: 'math-toggle', menuId: 'math-menu' },
-      { toggleId: 'philosophy-toggle', menuId: 'philosophy-menu' }
-    ];
-    toggles.forEach(({ toggleId, menuId }) => {
-      const toggle = document.getElementById(toggleId);
-      const menu = document.getElementById(menuId);
-      if (toggle && menu) {
-        toggle.addEventListener('click', () => {
-          const isHidden = menu.classList.toggle('hidden');
-          toggle.setAttribute('aria-expanded', !isHidden);
-        });
-      }
-    });
-  </script>
+
+  <footer class="site-footer">© 2025 LunarCosmos</footer>
+  <script src="/assets/site.js" defer></script>
 </body>
 </html>
