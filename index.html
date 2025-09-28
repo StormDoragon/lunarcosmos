@@ -1,0 +1,262 @@
+npx live-server .
+
+npm start
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" href="data:,">
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Lunar Cosmos — Space headlines + legal imagery (NASA/ESA/Hubble/JPL)</title>
+  <meta name="description" content="Lunar Cosmos aggregates legally reusable space visuals (NASA, ESA/Hubble, JPL) and links to the biggest publishers in space." />
+  <meta name="theme-color" content="#0a0b10" />
+
+  <!-- OG/Twitter (replace images/urls) -->
+  <meta property="og:title" content="Lunar Cosmos" />
+  <meta property="og:description" content="Daily NASA/APOD + ESA/Hubble visuals, with links to top space publishers." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.lunarcosmos.com/" />
+  <meta property="og:image" content="https://www.lunarcosmos.com/og.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="preconnect" href="https://unpkg.com" crossorigin>
+
+  <style>
+    :root{
+      --bg:#0a0b10; --ink:#f5f7ff; --muted:#c1c6d6; --accent:#8aa9ff; --accent2:#b693ff;
+      --max:1200px; --g:clamp(16px,2vw,28px); --r:14px; --shadow:0 10px 40px rgba(0,0,0,.4);
+    }
+    *{box-sizing:border-box} html,body{height:100%}
+    body{
+      margin:0; color:var(--ink); background:
+        radial-gradient(1000px 600px at 70% -10%, #172042 0%, transparent 60%) no-repeat,
+        radial-gradient(800px 500px at 20% 10%, #2a1649 0%, transparent 60%) no-repeat,
+        linear-gradient(#0b0d13,#080a11 40%, #0b0d13 100%);
+      background-color:var(--bg); font-family:system-ui,-apple-system,Segoe UI,Inter,Roboto,Arial,sans-serif;
+      -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility; line-height:1.6;
+    }
+    nav{position:fixed; inset-inline:0; top:0; z-index:50; backdrop-filter: blur(10px);
+      background:color-mix(in lab, #0b0d13 80%, transparent); border-bottom:1px solid rgba(255,255,255,.05)}
+    .nav-inner{max-width:var(--max); margin:0 auto; padding:.75rem var(--g); display:flex; gap:1rem; align-items:center; justify-content:space-between}
+    .brand{display:flex; gap:.6rem; align-items:center; color:var(--ink); text-decoration:none; font-weight:700}
+    .brand .dot{width:.7rem; height:.7rem; border-radius:999px; background:radial-gradient(circle at 30% 30%, var(--accent), var(--accent2)); box-shadow:0 0 12px var(--accent)}
+    .links a{color:var(--muted); text-decoration:none; padding:.4rem .7rem; border-radius:8px}
+    .links a:hover{background:rgba(255,255,255,.06); color:var(--ink)}
+    header{min-height:88svh; display:grid; place-items:center; position:relative; overflow:hidden}
+    #stars{position:absolute; inset:0; z-index:-2}
+    .hero{max-width:var(--max); margin:8rem auto 4rem; padding:0 var(--g)}
+    h1{font-family:ui-serif,Georgia,Cambria,Times,serif; font-size:clamp(2.2rem,6vw,4.2rem); margin:0 0 1rem; line-height:1.1}
+    .tag{color:var(--muted); max-width:70ch}
+    .cta{display:flex; gap:.6rem; flex-wrap:wrap; margin-top:1rem}
+    .btn{background:#141826; color:var(--ink); border:1px solid rgba(255,255,255,.15); padding:.75rem 1rem; border-radius:12px; text-decoration:none}
+    .btn.primary{background:linear-gradient(135deg,var(--accent),var(--accent2)); color:#0b0d13; border-color:transparent}
+    main .section{max-width:var(--max); margin:0 auto; padding:4.5rem var(--g)}
+    .grid{display:grid; gap:1rem; grid-template-columns:repeat(12,1fr)}
+    .card{grid-column:span 12; border:1px solid rgba(255,255,255,.08); background:#0c0f18; border-radius:14px; overflow:hidden}
+    .card h3{margin:.9rem 1rem 0}
+    .card .body{padding:0 1rem 1rem}
+    .cards-3 .card{grid-column:span 12}
+    @media (min-width: 900px){ .cards-3 .card{grid-column:span 4} }
+    .media{aspect-ratio:16/9; background:#0c1021; display:grid; place-items:center}
+    .muted{color:var(--muted)}
+    footer{border-top:1px solid rgba(255,255,255,.08); background:linear-gradient(#0b0d13,#0a0b10)}
+    .foot{max-width:var(--max); margin:0 auto; padding:2rem var(--g); color:var(--muted)}
+    :focus-visible{outline:2px solid var(--accent); outline-offset:2px; border-radius:10px}
+    @media (prefers-reduced-motion: reduce){ .orbit{animation:none} }
+  </style>
+</head>
+<body>
+  <nav role="navigation" aria-label="Primary">
+    <div class="nav-inner">
+      <a class="brand" href="/"><span class="dot" aria-hidden="true"></span><span>Lunar Cosmos</span></a>
+      <div class="links">
+        <a href="#apod">APOD</a>
+        <a href="#nasa">NASA</a>
+        <a href="#hubble">ESA/Hubble</a>
+        <a href="#jpl">JPL</a>
+        <a href="#publishers">Publishers</a>
+      </div>
+    </div>
+  </nav>
+
+  <header>
+    <canvas id="stars" aria-hidden="true"></canvas>
+    <div class="hero">
+      <h1>Explore space with public-domain & CC-BY visuals—then dive into today’s top stories</h1>
+      <p class="tag">We legally showcase NASA/JPL public-domain and ESA/Hubble CC-BY media, and link you to the biggest space publishers for full articles.</p>
+      <div class="cta">
+        <a class="btn primary" href="#apod">See Today’s APOD</a>
+        <a class="btn" href="#publishers">Jump to Headlines</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- NASA APOD -->
+    <section id="apod" class="section">
+      <h2>NASA Astronomy Picture of the Day</h2>
+      <p class="muted">NASA imagery is generally public domain for educational/informational use (credit required; don’t use NASA logos). Source: api.nasa.gov. <a href="https://www.nasa.gov/nasa-brand-center/images-and-media/" target="_blank" rel="noopener">Usage guidelines</a>.</p>
+      <div class="grid">
+        <article class="card" id="apod-card" aria-live="polite">
+          <div class="media" id="apod-media">Loading APOD…</div>
+          <div class="body">
+            <h3 id="apod-title"></h3>
+            <p id="apod-desc" class="muted"></p>
+            <small class="muted" id="apod-credit"></small>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- NASA Feeds -->
+    <section id="nasa" class="section">
+      <h2>NASA Feeds</h2>
+      <p class="muted">Follow official NASA news & imagery via RSS (headlines link out). <a href="https://www.nasa.gov/rss-feeds/" target="_blank" rel="noopener">All NASA RSS</a>.</p>
+      <div class="grid cards-3">
+        <article class="card">
+          <div class="body">
+            <h3>Breaking News</h3>
+            <p class="muted">Headlines from NASA HQ.</p>
+            <a class="btn" href="https://www.nasa.gov/rss/dyn/breaking_news.rss" target="_blank" rel="noopener">Open RSS</a>
+          </div>
+        </article>
+        <article class="card">
+          <div class="body">
+            <h3>Earth Observatory — Image of the Day</h3>
+            <p class="muted">Daily Earth science imagery.</p>
+            <a class="btn" href="https://earthobservatory.nasa.gov/subscribe/feeds" target="_blank" rel="noopener">Open Feeds</a>
+          </div>
+        </article>
+        <article class="card">
+          <div class="body">
+            <h3>NASA Photojournal</h3>
+            <p class="muted">Latest mission images by target/body.</p>
+            <a class="btn" href="https://photojournal.jpl.nasa.gov/rss/" target="_blank" rel="noopener">Open RSS</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ESA / Hubble (CC-BY 4.0) -->
+    <section id="hubble" class="section">
+      <h2>ESA/Hubble (CC-BY 4.0)</h2>
+      <p class="muted">ESA/Hubble images, videos, and web text are released under Creative Commons Attribution 4.0—reuse allowed with clear credit. <a href="https://esahubble.org/copyright/" target="_blank" rel="noopener">License</a>.</p>
+      <div class="grid">
+        <article class="card">
+          <div class="media">
+            <a href="https://esahubble.org/" target="_blank" rel="noopener">Visit ESA/Hubble</a>
+          </div>
+          <div class="body">
+            <h3>Latest Releases & Hubblecast</h3>
+            <p class="muted">Pull highlights and credit ESA/Hubble + original authors. Avoid copying full text; summarize with attribution.</p>
+            <a class="btn" href="https://esahubble.org/" target="_blank" rel="noopener">Open Site</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- JPL -->
+    <section id="jpl" class="section">
+      <h2>JPL Media</h2>
+      <p class="muted">JPL (a NASA center managed by Caltech) allows reuse of images/video on jpl.nasa.gov with some exceptions—credit appropriately. <a href="https://spdx.org/licenses/JPL-image.html" target="_blank" rel="noopener">Policy</a>.</p>
+      <div class="grid cards-3">
+        <article class="card">
+          <div class="body">
+            <h3>JPL News RSS</h3>
+            <p class="muted">Mission updates from JPL.</p>
+            <a class="btn" href="https://www.jpl.nasa.gov/rss/" target="_blank" rel="noopener">Open RSS</a>
+          </div>
+        </article>
+        <article class="card">
+          <div class="body">
+            <h3>Near-Earth Object Program (CNEOS)</h3>
+            <p class="muted">Track NEO updates.</p>
+            <a class="btn" href="https://cneos.jpl.nasa.gov/feed/" target="_blank" rel="noopener">Open RSS</a>
+          </div>
+        </article>
+        <article class="card">
+          <div class="body">
+            <h3>Photojournal by Topic</h3>
+            <p class="muted">Mars, Jupiter, Saturn, etc.</p>
+            <a class="btn" href="https://photojournal.jpl.nasa.gov/" target="_blank" rel="noopener">Open</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Major Publishers (links only) -->
+    <section id="publishers" class="section">
+      <h2>Today’s Big Space Publishers</h2>
+      <p class="muted">We link to headlines from high-traffic publishers (no copy/paste). Space.com is a top commercial site (~14.2M visits Aug 2025). NASA remains one of the largest official sources by global rank. :contentReference[oaicite:11]{index=11}</p>
+      <div class="grid cards-3">
+        <article class="card"><div class="body"><h3>Space.com</h3><p class="muted">News & explainers</p><a class="btn" href="https://www.space.com" target="_blank" rel="noopener">Visit</a></div></article>
+        <article class="card"><div class="body"><h3>SpaceNews</h3><p class="muted">Industry & policy</p><a class="btn" href="https://spacenews.com/" target="_blank" rel="noopener">Visit</a></div></article>
+        <article class="card"><div class="body"><h3>Universe Today</h3><p class="muted">Astronomy news</p><a class="btn" href="https://www.universetoday.com/" target="_blank" rel="noopener">Visit</a></div></article>
+        <article class="card"><div class="body"><h3>Astronomy.com</h3><p class="muted">Backyard stargazing</p><a class="btn" href="https://www.astronomy.com/" target="_blank" rel="noopener">Visit</a></div></article>
+        <article class="card"><div class="body"><h3>Sky & Telescope</h3><p class="muted">Observing & gear</p><a class="btn" href="https://skyandtelescope.org/" target="_blank" rel="noopener">Visit</a></div></article>
+        <article class="card"><div class="body"><h3>r/space (Reddit)</h3><p class="muted">Community discussions</p><a class="btn" href="https://www.reddit.com/r/space/" target="_blank" rel="noopener">Visit</a></div></article>
+      </div>
+    </section>
+  </main>
+
+  <footer><div class="foot">© <span id="year"></span> Lunar Cosmos • NASA/ESA/Hubble/JPL content credited per source. Other publishers linked only.</div></footer>
+
+  <!-- GSAP + Three.js for starfield -->
+  <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/three@0.165.0/build/three.min.js"></script>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Starfield (lightweight Points)
+    (function(){
+      const canvas = document.getElementById('stars');
+      const renderer = new THREE.WebGLRenderer({canvas, antialias:false, alpha:true});
+      const scene = new THREE.Scene();
+      const camera = new THREE.PerspectiveCamera(55, 1, 0.1, 2000);
+      function resize(){
+        const w = canvas.clientWidth = canvas.parentElement.clientWidth;
+        const h = canvas.clientHeight = Math.max(400, window.innerHeight * 0.9);
+        renderer.setSize(w,h,false); camera.aspect = w/h; camera.updateProjectionMatrix();
+      }
+      resize(); window.addEventListener('resize', resize);
+      const stars = (()=>{ const count = 1500;
+        const geo = new THREE.BufferGeometry();
+        const pos = new Float32Array(count*3);
+        for(let i=0;i<count;i++){ pos[i*3+0]=(Math.random()-0.5)*1400; pos[i*3+1]=(Math.random()-0.5)*900; pos[i*3+2]=Math.random()*-1200; }
+        geo.setAttribute('position', new THREE.BufferAttribute(pos,3));
+        const mat = new THREE.PointsMaterial({color:0xbfd3ff, size:1.6, sizeAttenuation:true, transparent:true, opacity:.9, depthWrite:false});
+        return new THREE.Points(geo,mat);
+      })();
+      scene.add(stars);
+      (function loop(){ stars.rotation.y += 0.0008; renderer.render(scene,camera); requestAnimationFrame(loop); })();
+    })();
+
+    // NASA APOD fetch (use your own key later)
+    (async function loadAPOD(){
+      const title = document.getElementById('apod-title');
+      const desc  = document.getElementById('apod-desc');
+      const cred  = document.getElementById('apod-credit');
+      const media = document.getElementById('apod-media');
+      try{
+        const r = await fetch('https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY&thumbs=true');
+        const d = await r.json();
+        title.textContent = d.title || 'Astronomy Picture of the Day';
+        desc.textContent  = d.explanation || '';
+        cred.textContent  = (d.copyright ? `Credit: ${d.copyright} • ` : '') + 'Courtesy NASA/APOD';
+        if(d.media_type === 'video' && d.url){
+          media.innerHTML = `<iframe src="${d.url}" title="APOD video" style="width:100%;height:100%;border:0" allowfullscreen></iframe>`;
+        }else{
+          const img = new Image(); img.alt = d.title || 'APOD'; img.src = d.hdurl || d.url; img.style.width='100%'; img.style.height='100%'; img.style.objectFit='cover';
+          media.innerHTML=''; media.appendChild(img);
+        }
+      }catch(e){
+        media.textContent = 'Unable to load APOD right now.';
+      }
+    })();
+  </script>
+</body>
+</html>
+
